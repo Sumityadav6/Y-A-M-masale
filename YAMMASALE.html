@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Y A M - Authentic Desi Masale</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Karma:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- COLOR PALETTE --- */
+    :root {
+      --bg-brown: #3B1F0B;
+      --accent-orange: #D4731A;
+      --text-cream: #FFF5E1;
+      --dark-card: #2B1608;
+      --black-overlay: rgba(0, 0, 0, 0.8);
+    }
+
+    /* --- GLOBAL STYLES --- */
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-brown);
+      color: var(--text-cream);
+      font-family: 'Karma', serif;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .brand-logo {
+      font-family: 'Bungee', cursive;
+      color: var(--accent-orange);
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* --- BUTTONS --- */
+    .btn {
+      background-color: var(--accent-orange);
+      color: var(--bg-brown);
+      font-family: 'Bungee', cursive;
+      border: 3px solid var(--accent-orange);
+      padding: 12px 24px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: transparent;
+      color: var(--accent-orange);
+    }
+
+    /* --- HEADER --- */
+    header {
+      background-color: #241306;
+      padding: 15px 0;
+      border-bottom: 5px solid var(--accent-orange);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-status {
+      cursor: pointer;
+      font-family: 'Bungee', cursive;
+      background: var(--accent-orange);
+      color: var(--bg-brown);
+      padding: 5px 15px;
+      border-radius: 4px;
+    }
+
+    /* --- HERO --- */
+    .hero {
+      padding: 100px 0;
+      text-align: center;
+      background: linear-gradient(rgba(59, 31, 11, 0.8), rgba(59, 31, 11, 0.8)), 
+                  url('https://ibb.co/k2Wt1Ccg');
+      background-size: cover;
+      background-position: center;
+      border-bottom: 2px dashed var(--accent-orange);
+    }
+
+    .hero h1 { font-size: 3.5rem; color: var(--text-cream); line-height: 1.1; }
+    .hero p { font-size: 1.4rem; margin-top: 15px; font-weight: 600; }
+
+    /* --- CATALOG --- */
+    .catalog-section { padding: 80px 0; }
+    .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .product-card {
+      background: var(--dark-card);
+      border: 2px solid #4a2810;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover { transform: translateY(-5px); border-color: var(--accent-orange); }
+
+    .product-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border: 4px solid var(--bg-brown);
+      margin-bottom: 10px;
+    }
+
+    .img-host-note {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .price {
+      display: block;
+      font-family: 'Bungee', cursive;
+      font-size: 1.4rem;
+      color: var(--accent-orange);
+      margin: 10px 0;
+    }
+
+    /* --- CART OVERLAY --- */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: var(--black-overlay);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: var(--bg-brown);
+      border: 5px solid var(--accent-orange);
+      width: 90%;
+      max-width: 500px;
+      padding: 30px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed var(--accent-orange);
+      padding: 10px 0;
+    }
+
+    /* --- FORMS --- */
+    .form-group { margin-bottom: 15px; }
+    label { display: block; font-family: 'Bungee', cursive; font-size: 0.9rem; margin-bottom: 5px; color: var(--accent-orange); }
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      background: var(--dark-card);
+      border: 1px solid var(--accent-orange);
+      color: var(--text-cream);
+      font-family: 'Karma', serif;
+    }
+
+    /* --- ABOUT & TESTIMONIALS --- */
+    .about-section { background: #241306; padding: 80px 0; border-top: 2px dashed var(--accent-orange); }
+    .about-text { max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.2rem; }
+
+    .testimonials { padding: 80px 0; }
+    .testimonial-card {
+      background: var(--dark-card);
+      padding: 30px;
+      border-left: 5px solid var(--accent-orange);
+      margin-bottom: 20px;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background: #170A03;
+      padding: 60px 0 30px;
+      border-top: 5px solid var(--accent-orange);
+      text-align: center;
+    }
+
+    .footer-links a {
+      color: var(--text-cream);
+      margin: 0 15px;
+      text-decoration: none;
+      font-family: 'Bungee', cursive;
+    }
+
+    .footer-links a:hover { color: var(--accent-orange); }
+
+    .owner-info { margin-top: 30px; opacity: 0.8; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-flex">
+      <div class="brand-logo">Y A M</div>
+      <div class="cart-status" onclick="openCart()">CART (<span id="cart-count">0</span>)</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Authentic Desi Masale,<br>Straight from Y A M</h1>
+      <p>Raw. Rustic. Pure Homemade Magic.</p>
+      <a href="#catalog" class="btn" style="margin-top: 30px;">Shop the Collection</a>
+    </div>
+  </section>
+
+  <section class="catalog-section" id="catalog">
+    <div class="container">
+      <h2 class="section-title">Our Spice Rack</h2>
+      <div class="product-grid" id="product-list">
+        </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="container">
+      <h2 class="section-title">The Y A M Heritage</h2>
+      <div class="about-text">
+        <p>Y A M was born out of a love for the intense, aromatic heat of a traditional Indian kitchen. We don't believe in factory-made perfection; we believe in the coarse textures, the sun-dried aromas, and the family recipes that have been passed down through generations.</p>
+        <p>Our spices are sourced directly and pounded to ensure that every pinch adds a story to your cooking. No preservatives, no polish—just raw, flavorful soul.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials container">
+    <h2 class="section-title">Word from the Kitchen</h2>
+    <div class="testimonial-card">
+      <p>"The Garam Masala smells exactly like my grandmother's pantry. Truly nostalgic and powerful."</p>
+      <strong style="color:var(--accent-orange)">- Amit R.</strong>
+    </div>
+    <div class="testimonial-card">
+      <p>"Finally, a brand that keeps the spices raw and street-style. The color of the Haldi is incredibly authentic."</p>
+      <strong style="color:var(--accent-orange)">- Priya S.</strong>
+    </div>
+  </section>
+
+  <section class="container" style="padding-bottom: 80px;">
+    <h2 class="section-title">Talk to Us</h2>
+    <form style="max-width: 600px; margin: 0 auto;">
+      <div class="form-group"><label>Name</label><input type="text"></div>
+      <div class="form-group"><label>Email</label><input type="email"></div>
+      <div class="form-group"><label>Message</label><textarea rows="4"></textarea></div>
+      <button type="button" class="btn" style="width:100%">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="brand-logo" style="font-size: 2rem; margin-bottom: 20px;">Y A M</div>
+      <div class="footer-links">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">WhatsApp</a>
+      </div>
+      <div class="owner-info">
+        <strong>Sumit Yadav</strong><br>
+        Gaav Chandpur, Tehsil Mundawar, Jila Khairthal Tijara<br>
+        &copy; 2026 Y A M Masale. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" id="cartModal">
+    <div class="modal-content">
+      <h2 style="margin-bottom: 20px;">Your Basket</h2>
+      <div id="cartItemsList"></div>
+      <div id="totalDisplay" style="margin: 20px 0; font-family: 'Bungee'; color: var(--accent-orange); font-size: 1.5rem;">Total: ₹0</div>
+      <button class="btn" style="width:100%" onclick="showCheckout()">Checkout Now</button>
+      <button class="btn" style="width:100%; margin-top: 10px; background: transparent; color: #fff;" onclick="closeModal()">Back to Shopping</button>
+    </div>
+  </div>
+
+  <div class="modal" id="checkoutModal">
+    <div class="modal-content">
+      <h2 style="margin-bottom: 20px;">Delivery Info</h2>
+      <form id="checkoutForm">
+        <div class="form-group"><label>Full Name</label><input type="text" id="custName" required></div>
+        <div class="form-group"><label>Email</label><input type="email" id="custEmail" required></div>
+        <div class="form-group"><label>Phone</label><input type="tel" id="custPhone" required></div>
+        <div class="form-group"><label>Address</label><textarea id="custAddr" required></textarea></div>
+        <div class="form-group">
+          <label>Payment</label>
+          <select id="custPay" required>
+            <option value="Cash on Delivery">Cash on Delivery</option>
+            <option value="Online Payment">Online Payment</option>
+          </select>
+        </div>
+        <button type="submit" class="btn" style="width:100%">Place Order</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const products = [
+      { id: 1, name: "Garam Masala", price: 150, desc: "The soul of every desi curry. Pounded whole spices.", img: "https://ibb.co/5gsz1jm3" },
+      { id: 2, name: "Teekha Lal", price: 120, desc: "Deep red, spicy chili powder with no artificial color.", img: "https://ibb.co/PZ380m9X" },
+      { id: 3, name: "Pure Haldi", price: 90, desc: "Sun-dried turmeric with high curcumin content.", img: "https://ibb.co/C3qtZpsb" },
+      { id: 4, name: "Amchur Powder", price: 110, desc: "Tangy dry mango powder for that street-style chatka.", img: "https://ibb.co/h1XX4vnw" },
+      { id: 5, name: "Dhaniya Powder", price: 85, desc: "Coarsely ground coriander seeds for rich aroma.", img: "https://ibb.co/dJtYNH1Y" },
+      { id: 6, name: "Chaat Masala", price: 130, desc: "The secret sprinkle for every desi street snack.", img: "https://ibb.co/QvzYZBJ9" }
+    ];
+
+    let cart = [];
+
+    function renderProducts() {
+      const container = document.getElementById('product-list');
+      container.innerHTML = products.map(p => `
+        <div class="product-card">
+          <img src="${p.img}" class="product-img" alt="${p.name}">
+          <span class="img-host-note">Image hosted on imgbb</span>
+          <h3>${p.name}</h3>
+          <p>${p.desc}</p>
+          <span class="price">₹${p.price}</span>
+          <button class="btn" style="width:100%" onclick="addToCart(${p.id})">Add to Cart</button>
+        </div>
+      `).join('');
+    }
+
+    function addToCart(id) {
+      const item = products.find(p => p.id === id);
+      cart.push(item);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      document.getElementById('cart-count').innerText = cart.length;
+      const list = document.getElementById('cartItemsList');
+      const totalDisplay = document.getElementById('totalDisplay');
+      
+      let total = 0;
+      list.innerHTML = cart.map((item, index) => {
+        total += item.price;
+        return `
+          <div class="cart-item">
+            <span>${item.name}</span>
+            <span>₹${item.price}</span>
+          </div>
+        `;
+      }).join('');
+      
+      totalDisplay.innerText = `Total: ₹${total}`;
+    }
+
+    function openCart() { document.getElementById('cartModal').style.display = 'flex'; }
+    function closeModal() { 
+      document.getElementById('cartModal').style.display = 'none'; 
+      document.getElementById('checkoutModal').style.display = 'none';
+    }
+
+    function showCheckout() {
+      if(cart.length === 0) return alert("Your cart is empty!");
+      document.getElementById('cartModal').style.display = 'none';
+      document.getElementById('checkoutModal').style.display = 'flex';
+    }
+
+    document.getElementById('checkoutForm').onsubmit = function(e) {
+      e.preventDefault();
+      
+      const orderDetails = cart.map(i => `${i.name} (₹${i.price})`).join('%0A');
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      
+      const body = `NEW ORDER FROM YAM MASALE%0A%0A` +
+                   `Customer: ${document.getElementById('custName').value}%0A` +
+                   `Phone: ${document.getElementById('custPhone').value}%0A` +
+                   `Address: ${document.getElementById('custAddr').value}%0A` +
+                   `Payment: ${document.getElementById('custPay').value}%0A%0A` +
+                   `ITEMS:%0A${orderDetails}%0A%0A` +
+                   `TOTAL AMOUNT: ₹${total}`;
+
+      const mailto = `mailto:officialsumityadav06@gmail.com?subject=New Order - YAM Masale&body=${body}`;
+      window.location.href = mailto;
+      
+      alert("Order details prepared! Please send the email to confirm your order.");
+      cart = [];
+      updateCartUI();
+      closeModal();
+    };
+
+    renderProducts();
+  </script>
+</body>
+</html>
