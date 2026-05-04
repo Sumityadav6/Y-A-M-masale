@@ -4,23 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Y A M - Pure Premium Spices</title>
-  
+  <meta name="description" content="Buy 100% pure, traditional Indian spices nurtured by farmer families. Garam Masala, Mirchi Powder, Chaat Masala & more.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Karma:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* --- COLOR PALETTE (Rule of 3rd) --- */
     :root {
-      --primary-brown: #261104;     /* 60% - Deep Earthy Base */
-      --secondary-red: #8C2703;     /* 30% - Rustic Spice Red for Sections */
-      --accent-gold: #E68A00;       /* 10% - Turmeric Gold for Buttons/Highlights */
-      --text-cream: #FFF8EE;        /* Clean readable text */
+      --primary-brown: #261104;
+      --secondary-red: #8C2703;
+      --accent-gold: #E68A00;
+      --text-cream: #FFF8EE;
       --card-bg: rgba(255, 248, 238, 0.05);
       --black-overlay: rgba(0, 0, 0, 0.85);
     }
 
-    /* --- GLOBAL STYLES --- */
     * { box-sizing: border-box; scroll-behavior: smooth; }
     body {
       background-color: var(--primary-brown);
@@ -29,22 +28,10 @@
       margin: 0;
       line-height: 1.6;
     }
+    h1, h2, h3, .brand-logo { font-family: 'Bungee', cursive; text-transform: uppercase; color: var(--accent-gold); margin:0; letter-spacing:1px; }
 
-    h1, h2, h3, .brand-logo {
-      font-family: 'Bungee', cursive;
-      color: var(--accent-gold);
-      text-transform: uppercase;
-      margin: 0;
-      letter-spacing: 1px;
-    }
+    .container { max-width: 1200px; margin:0 auto; padding:0 20px; }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* --- BUTTONS --- */
     .btn {
       background-color: var(--accent-gold);
       color: var(--primary-brown);
@@ -59,227 +46,115 @@
       text-align: center;
       border-radius: 4px;
     }
-    .btn:hover {
-      background-color: transparent;
-      color: var(--accent-gold);
-      box-shadow: 0 4px 10px rgba(230, 138, 0, 0.3);
-    }
-    
-    .btn-outline {
-      background-color: transparent;
-      color: var(--accent-gold);
-    }
-    .btn-outline:hover {
-      background-color: var(--accent-gold);
-      color: var(--primary-brown);
-    }
+    .btn:hover { transform: translateY(-3px) scale(1.05); background-color: transparent; color: var(--accent-gold); box-shadow: 0 4px 10px rgba(230,138,0,0.3); }
 
-    .btn-group {
-      display: flex;
-      gap: 10px;
-      margin-top: 15px;
-    }
-    .btn-group .btn { flex: 1; }
+    .btn-outline { background-color: transparent; color: var(--accent-gold); }
+    .btn-outline:hover { background-color: var(--accent-gold); color: var(--primary-brown); }
 
-    /* --- HEADER --- */
+    .btn-group { display: flex; gap: 10px; margin-top:15px; }
+    .btn-group .btn { flex:1; }
+
     header {
       background-color: var(--primary-brown);
       padding: 15px 0;
       border-bottom: 3px solid var(--secondary-red);
       position: sticky;
-      top: 0;
-      z-index: 1000;
+      top:0;
+      z-index:1000;
       box-shadow: 0 2px 15px rgba(0,0,0,0.5);
     }
-
-    .header-flex {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
+    .header-flex { display:flex; justify-content:space-between; align-items:center; }
     .cart-status {
-      cursor: pointer;
-      font-family: 'Bungee', cursive;
+      cursor:pointer; font-family:'Bungee', cursive;
       background: var(--secondary-red);
       color: var(--text-cream);
       padding: 8px 20px;
       border-radius: 4px;
       border: 1px solid var(--accent-gold);
-      transition: 0.3s;
+      transition:0.3s;
     }
     .cart-status:hover { background: var(--accent-gold); color: var(--primary-brown); }
+    .cart-status.pop { transform: scale(1.2); transition: transform 0.3s ease; }
 
-    /* --- HERO BANNER --- */
     .hero {
       padding: 120px 20px;
-      text-align: center;
-      /* Background setup with dark gradient overlay to ensure text visibility */
-      background: linear-gradient(to bottom, rgba(38, 17, 4, 0.7), rgba(140, 39, 3, 0.8)), 
+      text-align:center;
+      background: linear-gradient(to bottom, rgba(38,17,4,0.7), rgba(140,39,3,0.8)),
                   url("file_0000000084ec720787aaa3fdb21b6173.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       border-bottom: 4px solid var(--accent-gold);
       min-height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      display: flex; flex-direction: column; justify-content: center;
     }
+    .hero h1 { font-size: clamp(2rem,6vw,3.5rem); line-height:1.2; text-shadow:2px 2px 4px #000; }
+    .hero p { font-size: clamp(1rem,2vw,1.5rem); margin-top:15px; font-weight:600; text-shadow:1px 1px 3px #000; color: var(--accent-gold); }
 
-    .hero h1 { font-size: 3.5rem; color: var(--text-cream); line-height: 1.2; text-shadow: 2px 2px 4px #000; }
-    .hero p { font-size: 1.5rem; margin-top: 15px; font-weight: 600; text-shadow: 1px 1px 3px #000; }
+    .trust-section { background-color: var(--secondary-red); padding:40px 0; text-align:center; border-bottom:2px dashed var(--accent-gold);}
+    .trust-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:30px; margin-top:30px; }
+    .trust-item h3 { font-size:1.2rem; margin-bottom:10px; color: var(--text-cream); display:flex; align-items:center; gap:8px; }
 
-    /* --- TRUST SECTION --- */
-    .trust-section {
-      background-color: var(--secondary-red);
-      padding: 40px 0;
-      text-align: center;
-      border-bottom: 2px dashed var(--accent-gold);
-    }
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
-    .trust-item h3 { font-size: 1.2rem; color: var(--text-cream); margin-bottom: 10px; }
+    .catalog-section { padding:80px 0; }
+    .section-title { text-align:center; font-size:2.5rem; margin-bottom:50px; }
 
-    /* --- CATALOG --- */
-    .catalog-section { padding: 80px 0; }
-    .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
-    
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
       gap: 30px;
     }
-
     .product-card {
       background: var(--card-bg);
-      border: 1px solid var(--secondary-red);
-      padding: 20px;
-      text-align: center;
-      border-radius: 8px;
+      border:1px solid var(--secondary-red);
+      padding:20px;
+      text-align:center;
+      border-radius:8px;
       transition: all 0.3s;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .product-card:hover { 
-      transform: translateY(-5px); 
-      border-color: var(--accent-gold); 
-      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-    }
-
-    .img-wrapper { position: relative; overflow: hidden; border-radius: 6px; margin-bottom: 15px; border: 2px solid var(--secondary-red); cursor: pointer;}
-    
-    .product-img {
-      width: 100%;
-      aspect-ratio: 2 / 3; /* EXACT 2:3 RATIO */
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-    
-    .img-wrapper:hover .product-img { transform: scale(1.05); }
-
-    .click-hint {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: rgba(0,0,0,0.7);
-      color: var(--accent-gold);
-      font-size: 0.8rem;
-      padding: 5px;
-      font-weight: bold;
-    }
-
-    .product-name { font-size: 1.4rem; margin: 10px 0 5px; }
-    .weight-tag { font-family: 'Karma', serif; font-size: 1rem; color: #ccc; font-weight: normal; }
-    .price { display: block; font-family: 'Bungee', cursive; font-size: 1.5rem; color: var(--accent-gold); margin: 10px 0; }
-
-    /* --- MODALS (Cart, Checkout & Details) --- */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: var(--black-overlay);
-      z-index: 2000;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .modal-content {
-      background: var(--primary-brown);
-      border: 3px solid var(--accent-gold);
-      width: 100%;
-      max-width: 500px;
-      padding: 30px;
-      max-height: 85vh;
-      overflow-y: auto;
-      border-radius: 8px;
+      display:flex; flex-direction:column;
       position: relative;
     }
+    .product-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); box-shadow:0 10px 20px rgba(0,0,0,0.5); }
 
-    .close-btn {
-      position: absolute;
-      top: 15px; right: 20px;
-      font-size: 1.5rem;
-      color: var(--accent-gold);
-      cursor: pointer;
-      background: none; border: none; font-family: 'Bungee';
-    }
+    .img-wrapper { position: relative; overflow:hidden; border-radius:6px; margin-bottom:15px; border:2px solid var(--secondary-red); cursor:pointer; }
+    .product-img { width:100%; aspect-ratio:2/3; object-fit:cover; display:block; transition: transform 0.5s ease, filter 0.5s ease; }
+    .img-wrapper:hover .product-img { transform: scale(1.05); filter: brightness(1.1); }
 
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--secondary-red);
-      padding: 12px 0;
-    }
+    .click-hint { position:absolute; bottom:0; left:0; right:0; background:rgba(0,0,0,0.7); color:var(--accent-gold); font-size:0.8rem; padding:5px; font-weight:bold; }
 
-    /* --- FORMS --- */
-    .form-group { margin-bottom: 15px; }
-    label { display: block; font-family: 'Bungee', cursive; font-size: 0.9rem; margin-bottom: 5px; color: var(--accent-gold); }
-    input, textarea, select {
-      width: 100%;
-      padding: 12px;
-      background: var(--card-bg);
-      border: 1px solid var(--secondary-red);
-      color: var(--text-cream);
-      font-family: 'Karma', serif;
-      border-radius: 4px;
-    }
-    input:focus, textarea:focus, select:focus { outline: none; border-color: var(--accent-gold); }
+    .product-name { font-size:1.4rem; margin:10px 0 5px; }
+    .weight-tag { font-family:'Karma', serif; font-size:1rem; color:#ccc; font-weight:normal; }
+    .price { display:block; font-family:'Bungee', cursive; font-size:1.5rem; color: var(--accent-gold); margin:10px 0; }
 
-    /* --- FOOTER --- */
-    footer {
-      background: #140802;
-      padding: 50px 0 30px;
-      border-top: 3px solid var(--secondary-red);
-      text-align: center;
-    }
-    .footer-links { margin: 20px 0; }
-    .footer-links a {
-      color: var(--text-cream);
-      margin: 0 15px;
-      text-decoration: none;
-      font-family: 'Bungee', cursive;
-      display: inline-block;
-      margin-bottom: 10px;
-    }
+    .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: var(--black-overlay); z-index:2000; justify-content:center; align-items:center; padding:20px; }
+    .modal-content { background: var(--primary-brown); border:3px solid var(--accent-gold); width:100%; max-width:500px; padding:30px; max-height:85vh; overflow-y:auto; border-radius:8px; position:relative; }
+    .close-btn { position:absolute; top:15px; right:20px; font-size:1.5rem; color: var(--accent-gold); cursor:pointer; background:none; border:none; font-family:'Bungee'; }
+
+    .cart-item { display:flex; justify-content:space-between; border-bottom:1px solid var(--secondary-red); padding:12px 0; }
+
+    .form-group { margin-bottom:15px; }
+    label { display:block; font-family:'Bungee'; font-size:0.9rem; margin-bottom:5px; color: var(--accent-gold); }
+    input, textarea, select { width:100%; padding:12px; background: var(--card-bg); border:1px solid var(--secondary-red); color: var(--text-cream); font-family:'Karma'; border-radius:4px; }
+    input:focus, textarea:focus, select:focus { outline:none; border-color: var(--accent-gold); }
+
+    footer { background:#140802; padding:50px 0 30px; border-top:3px solid var(--secondary-red); text-align:center; }
+    .footer-links { margin:20px 0; }
+    .footer-links a { color:var(--text-cream); margin:0 15px; text-decoration:none; font-family:'Bungee'; display:inline-block; margin-bottom:10px; }
     .footer-links a:hover { color: var(--accent-gold); }
-    .owner-info { margin-top: 20px; opacity: 0.8; font-size: 0.95rem; }
+    .owner-info { margin-top:20px; opacity:0.8; font-size:0.95rem; }
 
-    /* --- RESPONSIVE DESIGN --- */
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
-      .hero p { font-size: 1.2rem; }
-      .section-title { font-size: 2rem; }
-      .product-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px;}
-      .btn-group { flex-direction: column; }
-      .product-name { font-size: 1.1rem; }
-      .price { font-size: 1.2rem; }
+    @media(max-width:768px){
+      .hero h1{ font-size: clamp(2rem,5vw,2.5rem);}
+      .hero p{ font-size: clamp(0.9rem,2vw,1.2rem);}
+      .section-title{ font-size:2rem; }
+      .product-grid{ grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap:15px;}
+      .btn-group{ flex-direction:column; }
+      .product-name{ font-size:1.1rem; }
+      .price{ font-size:1.2rem; }
+    }
+
+    @media(max-width:480px){
+      .product-grid{ display:flex; overflow-x:auto; gap:15px; scroll-snap-type:x mandatory; }
+      .product-card{ flex:0 0 200px; scroll-snap-align:start; }
     }
   </style>
 </head>
@@ -295,26 +170,26 @@
   <section class="hero">
     <div class="container">
       <h1>Pure Spices.<br>Shuddh Deshi Anubhav.</h1>
-      <p style="color: var(--accent-gold);">Nurtured by Farmer Families, Presented to You.</p>
-      <a href="#catalog" class="btn" style="margin-top: 30px; font-size: 1.2rem; padding: 15px 30px;">Shop the Collection</a>
+      <p>Nurtured by Farmer Families, Presented to You.</p>
+      <a href="#catalog" class="btn" style="margin-top:30px;font-size:1.2rem;padding:15px 30px;">Shop the Collection</a>
     </div>
   </section>
 
   <section class="trust-section">
     <div class="container">
-      <h2 style="color: var(--accent-gold); font-size: 2rem;">Why Choose Y A M?</h2>
+      <h2>Why Choose Y A M?</h2>
       <div class="trust-grid">
         <div class="trust-item">
-          <h3>🌱 100% Pure & Natural</h3>
-          <p>No artificial colors, no polish, no preservatives. Just the raw, earthy goodness of real spices.</p>
+          <h3>100% Pure & Natural</h3>
+          <p>No artificial colors, no polish, no preservatives. Just raw earthy goodness.</p>
         </div>
         <div class="trust-item">
-          <h3>🧑‍🌾 Farmer Family Heritage</h3>
-          <p>Sourced directly from the roots. Every pack supports the farmers who nurture these spices.</p>
+          <h3>Farmer Family Heritage</h3>
+          <p>Directly sourced from farmer roots. Every pack supports their work.</p>
         </div>
         <div class="trust-item">
-          <h3>🔨 Traditional Pounding</h3>
-          <p>Ground at optimal temperatures to retain 100% essential oils, aroma, and authentic taste.</p>
+          <h3>Traditional Pounding</h3>
+          <p>Ground at optimal temperatures to retain essential oils, aroma, and taste.</p>
         </div>
       </div>
     </div>
@@ -323,15 +198,14 @@
   <section class="catalog-section" id="catalog">
     <div class="container">
       <h2 class="section-title">Our Premium Spice Rack</h2>
-      <div class="product-grid" id="product-list">
-        </div>
+      <div class="product-grid" id="product-list"></div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <div class="brand-logo" style="font-size: 2.5rem;">Y A M</div>
-      <p style="opacity: 0.8; margin-bottom: 20px;">Keep it Pure. Keep it Spicy.</p>
+      <div class="brand-logo" style="font-size:2.5rem;">Y A M</div>
+      <p style="opacity:0.8;margin-bottom:20px;">Keep it Pure. Keep it Spicy.</p>
       <div class="footer-links">
         <a href="https://www.instagram.com/yammasale?igsh=MTk3aml1ZTJkZXljOQ==" target="_blank">Instagram</a>
         <a href="https://www.facebook.com/share/17i4xWV5JZ/" target="_blank">Facebook</a>
@@ -345,34 +219,35 @@
     </div>
   </footer>
 
+  <!-- Modals -->
   <div class="modal" id="detailsModal">
     <div class="modal-content">
       <button class="close-btn" onclick="closeDetailsModal()">X</button>
-      <img id="detail-img" src="" alt="Product" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; border-radius: 6px; border: 2px solid var(--secondary-red); margin-bottom: 15px;">
-      <h2 id="detail-name" style="margin-bottom: 5px;">Product Name</h2>
-      <span style="color: var(--accent-gold); font-family: 'Bungee'; font-size: 1.2rem;" id="detail-price">₹0</span>
-      <p id="detail-desc" style="margin-top: 15px; font-size: 1.1rem;"></p>
-      <div style="background: rgba(140, 39, 3, 0.2); border-left: 4px solid var(--accent-gold); padding: 15px; margin: 20px 0; font-style: italic;">
-        "Hamare masale me sab kuch milega—shuddhata, swaad, aur parivar ka vishwas. 100% natural goodness in every pinch."
+      <img id="detail-img" src="" alt="Product" style="width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:6px;border:2px solid var(--secondary-red);margin-bottom:15px;">
+      <h2 id="detail-name" style="margin-bottom:5px;"></h2>
+      <span style="color:var(--accent-gold); font-family:'Bungee'; font-size:1.2rem;" id="detail-price"></span>
+      <p id="detail-desc" style="margin-top:15px;font-size:1.1rem;"></p>
+      <div style="background: rgba(140, 39, 3, 0.2); border-left:4px solid var(--accent-gold); padding:15px; margin:20px 0; font-style:italic;">
+        "Hamare masale me sab kuch milega—shuddhata, swaad, aur parivar ka vishwas."
       </div>
-      <button class="btn" style="width: 100%;" id="detail-buy-btn">Buy Now</button>
+      <button class="btn" style="width:100%;" id="detail-buy-btn">Buy Now</button>
     </div>
   </div>
 
   <div class="modal" id="cartModal">
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal()">X</button>
-      <h2 style="margin-bottom: 20px;">Your Basket</h2>
+      <h2 style="margin-bottom:20px;">Your Basket</h2>
       <div id="cartItemsList"></div>
-      <div id="totalDisplay" style="margin: 20px 0; font-family: 'Bungee'; color: var(--accent-gold); font-size: 1.5rem;">Total: ₹0</div>
-      <button class="btn" style="width:100%; margin-bottom: 10px;" onclick="showCheckout()">Proceed to Checkout</button>
+      <div id="totalDisplay" style="margin:20px 0; font-family:'Bungee'; color: var(--accent-gold); font-size:1.5rem;">Total: ₹0</div>
+      <button class="btn" style="width:100%;margin-bottom:10px;" onclick="showCheckout()">Proceed to Checkout</button>
     </div>
   </div>
 
   <div class="modal" id="checkoutModal">
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal()">X</button>
-      <h2 style="margin-bottom: 20px;">Delivery Info</h2>
+      <h2 style="margin-bottom:20px;">Delivery Info</h2>
       <form id="checkoutForm">
         <div class="form-group"><label>Full Name</label><input type="text" id="custName" required></div>
         <div class="form-group"><label>Email</label><input type="email" id="custEmail" required></div>
@@ -385,204 +260,14 @@
             <option value="Online Payment">Online Payment</option>
           </select>
         </div>
-        <button type="submit" class="btn" style="width:100%; font-size: 1.1rem; padding: 15px;">Place Order Now</button>
+        <button type="submit" class="btn" style="width:100%; font-size:1.1rem; padding:15px;">Place Order Now</button>
       </form>
     </div>
   </div>
 
   <script>
     const products = [
-      { 
-        id: 1, 
-        name: "YAM Garam Masala", 
-        price: 150, 
-        shortDesc: "The soul of every desi curry. Pounded whole spices.", 
-        longDesc: "A royal blend of premium whole spices, slowly roasted to perfection before being ground. Our Garam Masala enhances any dish with rich, warm flavors and a breathtaking aroma. No fillers, just pure heritage in every pinch.",
-        img: "1777884671699.png" 
-      },
-      { 
-        id: 2, 
-        name: "YAM Mirchi Powder", 
-        price: 120, 
-        shortDesc: "Deep red, spicy chili powder with no artificial color.", 
-        longDesc: "Fiery, vibrant, and fiercely authentic. Sourced from the finest farms, this chili powder delivers the perfect heat level and a stunning natural red color to your curries. 100% pure, unpolished, and intensely flavorful.",
-        img: "1777884798301.png" 
-      },
-      { 
-        id: 3, 
-        name: "YAM Haldi Powder", 
-        price: 90, 
-        shortDesc: "Sun-dried turmeric with high curcumin content.", 
-        longDesc: "Golden, earthy, and packed with naturally high curcumin content. Nurtured by farmer families, our turmeric brings vibrant color, complete health benefits, and a pure, rustic taste to your daily meals.",
-        img: "1777884274300.png" 
-      },
-      { 
-        id: 4, 
-        name: "YAM Amchur Powder", 
-        price: 110, 
-        shortDesc: "Tangy dry mango powder for that street-style chatka.", 
-        longDesc: "Made from carefully selected, sun-dried raw green mangoes. Our Amchur powder delivers a perfectly balanced, lip-smacking tangy zing to your curries, chaats, and marinades without a single trace of artificial additives.",
-        img: "1777884371644.png" 
-      },
-      { 
-        id: 5, 
-        name: "YAM Dhaniya Powder", 
-        price: 85, 
-        shortDesc: "Coarsely ground coriander seeds for rich aroma.", 
-        longDesc: "Ground from naturally dried, plump coriander seeds. Its fresh, cooling aroma beautifully balances heavy, spicy gravies and adds a fragrant, earthy depth to your everyday home cooking.",
-        img: "1777884469749.png" 
-      },
-      { 
-        id: 6, 
-        name: "YAM Chaat Masala", 
-        price: 130, 
-        shortDesc: "The secret sprinkle for every desi street snack.", 
-        longDesc: "The ultimate street-style secret! A masterfully crafted blend of tangy, salty, and spicy notes that instantly elevates your fresh fruits, salads, pakoras, and snacks. Authentic taste guaranteed in every bite.",
-        img: "1777884573952.png" 
-      }
-    ];
-
-    let cart = JSON.parse(localStorage.getItem('yamCart')) || [];
-
-    function saveCart() {
-      localStorage.setItem('yamCart', JSON.stringify(cart));
-      updateCartUI();
-    }
-
-    function renderProducts() {
-      const container = document.getElementById('product-list');
-      container.innerHTML = products.map(p => `
-        <div class="product-card">
-          <div class="img-wrapper" onclick="openDetails(${p.id})">
-            <img src="${p.img}" class="product-img" alt="${p.name}">
-            <div class="click-hint">Click for details</div>
-          </div>
-          <h3 class="product-name">${p.name} <span class="weight-tag">(100g)</span></h3>
-          <span class="price">₹${p.price}</span>
-          <p style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 15px; flex-grow:1;">${p.shortDesc}</p>
-          <div class="btn-group">
-            <button class="btn btn-outline" onclick="addToCart(${p.id})">Add to Cart</button>
-            <button class="btn" onclick="buyNow(${p.id})">Buy Now</button>
-          </div>
-        </div>
-      `).join('');
-      updateCartUI();
-    }
-
-    function openDetails(id) {
-      const item = products.find(p => p.id === id);
-      document.getElementById('detail-img').src = item.img;
-      document.getElementById('detail-name').innerHTML = `${item.name} <span style="font-size:1rem; color:#ccc;">(100g)</span>`;
-      document.getElementById('detail-price').innerText = `₹${item.price}`;
-      document.getElementById('detail-desc').innerText = item.longDesc;
-      
-      document.getElementById('detail-buy-btn').onclick = function() {
-        buyNow(id);
-        closeDetailsModal();
-      };
-      
-      document.getElementById('detailsModal').style.display = 'flex';
-    }
-
-    function closeDetailsModal() {
-      document.getElementById('detailsModal').style.display = 'none';
-    }
-
-    function addToCart(id) {
-      const item = products.find(p => p.id === id);
-      cart.push(item);
-      saveCart();
-      alert(`${item.name} added to cart!`);
-    }
-
-    function buyNow(id) {
-      const item = products.find(p => p.id === id);
-      cart.push(item);
-      saveCart();
-      showCheckout();
-    }
-
-    function updateCartUI() {
-      document.getElementById('cart-count').innerText = cart.length;
-      const list = document.getElementById('cartItemsList');
-      const totalDisplay = document.getElementById('totalDisplay');
-      
-      let total = 0;
-      if(cart.length === 0) {
-        list.innerHTML = "<p>Your cart is empty.</p>";
-      } else {
-        list.innerHTML = cart.map((item, index) => {
-          total += item.price;
-          return `
-            <div class="cart-item">
-              <div>
-                <strong>${item.name}</strong> (100g)<br>
-                <span style="font-size: 0.8rem; cursor:pointer; color: #ff4d4d;" onclick="removeFromCart(${index})">Remove</span>
-              </div>
-              <strong style="color:var(--accent-gold);">₹${item.price}</strong>
-            </div>
-          `;
-        }).join('');
-      }
-      totalDisplay.innerText = `Total Amount: ₹${total}`;
-    }
-
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      saveCart();
-    }
-
-    function openCart() { 
-      document.getElementById('cartModal').style.display = 'flex'; 
-    }
-    
-    function closeModal() { 
-      document.getElementById('cartModal').style.display = 'none'; 
-      document.getElementById('checkoutModal').style.display = 'none';
-    }
-
-    function showCheckout() {
-      if(cart.length === 0) return alert("Your cart is empty! Please add products first.");
-      document.getElementById('cartModal').style.display = 'none';
-      document.getElementById('checkoutModal').style.display = 'flex';
-    }
-
-    document.getElementById('checkoutForm').onsubmit = function(e) {
-      e.preventDefault();
-      
-      let itemCounts = {};
-      cart.forEach(i => {
-        itemCounts[i.name] = (itemCounts[i.name] || 0) + 1;
-      });
-
-      let orderDetails = "";
-      let total = 0;
-      for (const [name, qty] of Object.entries(itemCounts)) {
-        const itemObj = products.find(p => p.name === name);
-        const itemTotal = itemObj.price * qty;
-        total += itemTotal;
-        orderDetails += `${name} (100g) x ${qty} = ₹${itemTotal}%0A`;
-      }
-      
-      const body = `*NEW PREMIUM ORDER - Y A M MASALE*%0A%0A` +
-                   `Customer Name: ${document.getElementById('custName').value}%0A` +
-                   `Phone Number: ${document.getElementById('custPhone').value}%0A` +
-                   `Delivery Address: ${document.getElementById('custAddr').value}%0A` +
-                   `Payment Method: ${document.getElementById('custPay').value}%0A%0A` +
-                   `*ORDER ITEMS:*%0A${orderDetails}%0A` +
-                   `*GRAND TOTAL: ₹${total}*`;
-
-      const mailto = `mailto:officialsumityadav06@gmail.com?subject=New Order - Y A M Masale&body=${body}`;
-      window.location.href = mailto;
-      
-      alert("Opening your email to confirm the order! Thank you for choosing Y A M.");
-      cart = [];
-      saveCart();
-      closeModal();
-      document.getElementById('checkoutForm').reset();
-    };
-
-    renderProducts();
-  </script>
-</body>
-</html>
+      {id:1,name:"YAM Garam Masala", price:150, shortDesc:"The soul of every desi curry. Pounded whole spices.", longDesc:"A royal blend of premium whole spices, slowly roasted to perfection before being ground. Our Garam Masala enhances any dish with rich, warm flavors and a breathtaking aroma. No fillers, just pure heritage in every pinch.", img:"1777884671699.png"},
+      {id:2,name:"YAM Mirchi Powder", price:120, shortDesc:"Deep red, spicy chili powder with no artificial color.", longDesc:"Fiery, vibrant, and fiercely authentic. Sourced from the finest farms, this chili powder delivers the perfect heat level and a stunning natural red color to your curries. 100% pure, unpolished, and intensely flavorful.", img:"1777884798301.png"},
+      {id:3,name:"YAM Haldi Powder", price:90, shortDesc:"Sun-dried turmeric with high curcumin content.", longDesc:"Golden, earthy, and packed with naturally high curcumin content. Nurtured by farmer families, our turmeric brings vibrant color, complete health benefits, and a pure, rustic taste to your daily meals.", img:"1777884274300.png"},
+      {id:4,name:"YAM Amchur Powder", price:110, shortDesc:"Tangy dry mango powder for that street-style chatka.", longDesc:"Made from carefully selected, sun-dried raw green mangoes. Our Amchur powder delivers a perfectly balanced, lip
