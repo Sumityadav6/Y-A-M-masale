@@ -263,7 +263,7 @@
       const upiBox = document.getElementById('upi-box');
       if(method === 'Online Payment') {
         const total = cart.reduce((sum, item) => sum + item.price, 0);
-        const upiLink = `upi://pay?pa=${YOUR_UPI_ID}&pn=YAM%20Masale&am=${total}&cu=INR`;
+        const upiLink = `upi://pay?pa=${maxusdt@ybl}&pn=YAM%20Masale&am=${total}&cu=INR`;
         // Generate QR using free API
         document.getElementById('qr-image').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiLink)}`;
         upiBox.style.display = 'block';
