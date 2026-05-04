@@ -1,0 +1,22 @@
+{
+  "name": "Y A M Masale",
+  "short_name": "Y A M",
+  "description": "Authentic Desi Spices",
+  "start_url": "/Y-A-M-masale/index.html",
+  "display": "standalone",
+  "background_color": "#261104",
+  "theme_color": "#261104",
+  "icons": [
+    {
+      "src": "1777884671699.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "1777884671699.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+
